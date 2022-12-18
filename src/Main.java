@@ -16,14 +16,15 @@ public class Main {
 
             //is it fine
             if (fine) {
-                nee.UpdateState(time);
+                nee.UpdateState();
                 System.out.println("My position: "+ nee.pos);
             }
 
-            if (Math.random() < 0.5) {
+            if (MyPosition > 10) {
                 fine = false;
             }
         }
+        System.out.println("I am not fine");
         time++;
     }
 }

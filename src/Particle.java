@@ -1,9 +1,10 @@
 public class Particle {
+    int force = 0;
+    int acceleration = 0;
     int velocity = 1;
     //int time = 0;
-    int acceleration = 0;
     int pos = 0;
-    int mass= 0;
+    int mass = 1;
 
     public Particle(int _mass, int _pos){
         mass = _mass;
@@ -11,11 +12,24 @@ public class Particle {
     }
 
     //returns position after inputting change in time
-    public int UpdateState(int dtime){
-        pos += velocity * dtime;
-        velocity += acceleration * dtime;
-
+    public void UpdateState(){
+        UpdatePos();
+        UpdateVel();
+        UpdateAcc();
       //  acceleration = forces/mass;
-        return pos;
+
     }
+
+    public void UpdatePos(){
+        pos += velocity;
+    }
+
+    public void UpdateVel(){
+        velocity += acceleration;
+    }
+
+    public void UpdateAcc(){
+        acceleration = force/mass;
+    }
+
 }
