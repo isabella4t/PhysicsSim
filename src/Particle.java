@@ -1,10 +1,11 @@
 public class Particle {
-    int force = 0;
+    int force = 1;
     int acceleration = 0;
     int velocity = 1;
     //int time = 0;
     int pos = 0;
     int mass = 1;
+    boolean crash = false;
 
     public Particle(int _mass, int _pos){
         mass = _mass;
@@ -16,7 +17,7 @@ public class Particle {
         UpdatePos();
         UpdateVel();
         UpdateAcc();
-      //  acceleration = forces/mass;
+        Crashed();
 
     }
 
@@ -30,6 +31,24 @@ public class Particle {
 
     public void UpdateAcc(){
         acceleration = force/mass;
+        //  acceleration = forces/mass;
+        //newton 2nd law
+    }
+
+    public void Crashed(){
+        if(pos > 100){
+            crash = true;
+        }
+    }
+
+    public String toString(){
+
+        if(!crash){
+           return ("Position is " + pos);
+        }
+        else{
+            return "Particle has crashed";
+        }
     }
 
 }

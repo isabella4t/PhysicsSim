@@ -6,25 +6,17 @@ public class Main {
         System.out.println("Welcome to the simulation");
 
         int time = 0;
-        boolean fine = true;
-        boolean universe = true;
         double MyPosition = 0;
 
-        Particle nee = new Particle(20,0);
+        Particle nee = new Particle(1,0);
 
-        while (universe) {
+        while (!nee.crash) {
 
-            //is it fine
-            if (fine) {
-                nee.UpdateState();
-                System.out.println("My position: "+ nee.pos);
-            }
+            nee.UpdateState();
+            System.out.println(nee.toString());
 
-            if (MyPosition > 10) {
-                fine = false;
-            }
+            time++;
         }
-        System.out.println("I am not fine");
-        time++;
+        System.out.println("The end is upon us");
     }
 }
